@@ -38,7 +38,7 @@ N_EPOCH = args.epoch
 PATH = args.workdir
 
 # Load data
-data = pd.read_csv(os.path.join(PATH, "/data/imagenette2-320/noisy_imagenette.csv"))
+data = pd.read_csv(os.path.join(PATH,  "data/imagewoof2-320/noisy_imagewoof.csv"))
 
 # Cat labels to int
 dict_label = {j: i for i, j in enumerate(set(data['noisy_labels_0']))}
@@ -75,9 +75,9 @@ data_transforms = {
     ])
 }
 
-train_data = CustomImageDataset(train, os.path.join(PATH, "/data/imagenette2-320"), data_transforms['train'])
-valid_data = CustomImageDataset(valid, os.path.join(PATH, "/data/imagenette2-320"), data_transforms['val'])
-test_data = CustomImageDataset(test, os.path.join(PATH, "/data/imagenette2-320"), data_transforms['test'])
+train_data = CustomImageDataset(train, os.path.join(PATH, "/data/imagewoof2-320"), data_transforms['train'])
+valid_data = CustomImageDataset(valid, os.path.join(PATH, "data/imagewoof2-320"), data_transforms['val'])
+test_data = CustomImageDataset(test, os.path.join(PATH, "data/imagewoof2-320"), data_transforms['test'])
 
 # Create dataloader
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')

@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser(description='Load data')
 parser.add_argument("-d", "--to_dir", required=True, help = 'Path to workdir')
 args = parser.parse_args()
 
-url = 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-320.tgz'
+url = 'https://s3.amazonaws.com/fast-ai-imageclas/imagewoof2-320.tgz'
 path = args.to_dir
 dir_for_data = 'data'
 
@@ -21,13 +21,13 @@ def get_data(url, path, dir_for_data):
     :return: created dir with unzip data
     """
     all_path = os.path.join(path, dir_for_data)
-    os.mkdir(all_path)
     try:
+        os.mkdir(all_path)
         wget.download(url, all_path)
     except:
         pass
-    my_tar = tarfile.open(os.path.join(all_path, 'imagenette2-320.tgz'))
-    my_tar.extractall(all_path) # specify which folder to extract to
+    my_tar = tarfile.open(os.path.join(all_path, 'imagewoof2-320.tgz'))
+    my_tar.extractall(all_path)  # specify which folder to extract to
     my_tar.close()
 
 
