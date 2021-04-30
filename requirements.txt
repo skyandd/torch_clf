@@ -1,4 +1,6 @@
 wget
 tarfile
 torch
+torchvision
 argparse
+scikit-learn
